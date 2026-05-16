@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siddharth Desai | AI Product Manager Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --card: rgba(16, 24, 40, 0.72);
+      --border: rgba(255,255,255,0.08);
+      --primary: #7c9cff;
+      --secondary: #5df2d6;
+      --text: #edf2ff;
+      --muted: #a8b4cf;
+      --highlight: #a855f7;
+      --shadow: 0 10px 40px rgba(0,0,0,0.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(124,156,255,0.25), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(93,242,214,0.18), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    .background-grid {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: -1;
+      mask-image: radial-gradient(circle at center, black 30%, transparent 90%);
+    }
+
+    .container {
+      max-width: 1350px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 350px 1fr;
+      gap: 24px;
+    }
+
+    .glass {
+      background: var(--card);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    .sidebar {
+      padding: 34px 28px;
+      position: sticky;
+      top: 30px;
+      height: fit-content;
+    }
+
+    .profile-ring {
+      width: 130px;
+      height: 130px;
+      margin: auto;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--highlight));
+      animation: rotate 8s linear infinite;
+    }
+
+    .profile-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #111827;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 46px;
+      font-weight: 800;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .name {
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .name h1 {
+      font-size: 32px;
+      line-height: 1.1;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .name p {
+      color: var(--secondary);
+      margin-top: 8px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .contact {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      color: var(--muted);
+      font-size: 14px;
+      transition: 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateX(6px);
+      border-color: rgba(124,156,255,0.4);
+      color: white;
+    }
+
+    .section {
+      margin-top: 32px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: var(--secondary);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .skill {
+      margin-bottom: 16px;
+    }
+
+    .skill-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .skill-bar {
+      height: 8px;
+      border-radius: 99px;
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      animation: grow 1.5s ease forwards;
+      transform-origin: left;
+    }
+
+    @keyframes grow {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    .main {
+      padding: 34px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 36px;
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(124,156,255,0.15), rgba(168,85,247,0.1)),
+        rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(93,242,214,0.25), transparent 70%);
+      right: -60px;
+      top: -60px;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      line-height: 1.05;
+      max-width: 700px;
+      font-family: 'Space Grotesk', sans-serif;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero p {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 760px;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tag-row {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tag {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 13px;
+      color: white;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .card {
+      padding: 26px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(124,156,255,0.35);
+    }
+
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 18px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 6px;
+      bottom: 0;
+      width: 2px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -24px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: 0 0 12px rgba(124,156,255,0.8);
+    }
+
+    .timeline-item h4 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .timeline-item span {
+      color: var(--secondary);
+      font-size: 13px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .project {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: 0.3s ease;
+    }
+
+    .project:hover {
+      background: rgba(124,156,255,0.08);
+      transform: scale(1.01);
+    }
+
+    .project h4 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .project p {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .stat h2 {
+      font-size: 32px;
+      color: var(--secondary);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .stat p {
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding: 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 1100px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: relative;
+        top: 0;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 18px;
+      }
+
+      .main {
+        padding: 22px;
+      }
+
+      .hero {
+        padding: 26px;
+      }
+
+      .hero h2 {
+        font-size: 34px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-grid"></div>
+
+  <div class="container">
+
+    <aside class="glass sidebar">
+      <div class="profile-ring">
+        <div class="profile-inner">SD</div>
+      </div>
+
+      <div class="name">
+        <h1>Siddharth<br>Desai</h1>
+        <p>AI Product Manager</p>
+      </div>
+
+      <div class="contact">
+        <div class="contact-item">📍 Waterloo, Ontario, Canada</div>
+        <div class="contact-item">✉️ siddharth@email.com</div>
+        <div class="contact-item">💼 linkedin.com/in/siddharth</div>
+        <div class="contact-item">🌐 portfolio.com</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Core Skills</div>
+
+        <div class="skill">
+          <div class="skill-top">
+            <span>AI Product Strategy</span>
+            <span>92%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:92%"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-top">
+            <span>User Research</span>
+            <span>88%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:88%"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-top">
+            <span>RAG & AI Systems</span>
+            <span>82%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:82%"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-top">
+            <span>Growth & Activation</span>
+            <span>86%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:86%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Tech Stack</div>
+        <div class="tag-row">
+          <div class="tag">OpenAI</div>
+          <div class="tag">Claude</div>
+          <div class="tag">Google AI Studio</div>
+          <div class="tag">Figma</div>
+          <div class="tag">SQL</div>
+          <div class="tag">Notion</div>
+          <div class="tag">Analytics</div>
+          <div class="tag">Prompt Design</div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="glass main">
+      <section class="hero">
+        <h2>Building AI products that convert passive experiences into intelligent user outcomes.</h2>
+
+        <p>
+          Product-minded problem solver focused on AI-powered experiences, user activation, and behavior-driven systems. Passionate about transforming ambiguous customer pain points into scalable product opportunities using AI workflows, rapid prototyping, and user-centric thinking.
+        </p>
+
+        <div class="tag-row">
+          <div class="tag">AI Agents</div>
+          <div class="tag">Product Strategy</div>
+          <div class="tag">HealthTech</div>
+          <div class="tag">User Activation</div>
+          <div class="tag">Behavior Systems</div>
+          <div class="tag">LLM Workflows</div>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <h2 id="years">0</h2>
+            <p>AI Projects</p>
+          </div>
+          <div class="stat">
+            <h2 id="cases">0</h2>
+            <p>Case Studies Built</p>
+          </div>
+          <div class="stat">
+            <h2 id="ideas">0</h2>
+            <p>Product Concepts</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="content-grid">
+
+        <section class="card">
+          <h3>Experience & Journey</h3>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <h4>AI Product Management Exploration</h4>
+              <span>2025 — Present</span>
+              <p>
+                Building practical AI product case studies focused on user behavior, activation, retention, and intelligent assistance systems. Exploring AI-first workflows and prototyping experiences using modern LLM tools.
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <h4>Independent Product Case Study Builder</h4>
+              <span>HealthTech & Consumer AI</span>
+              <p>
+                Created a product strategy case study for Oura focused on solving “Optimization Fatigue” by shifting from passive tracking to actionable habit attribution and AI-guided interventions.
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <h4>AI Prototyping & Workflow Design</h4>
+              <span>Hands-on Learning</span>
+              <p>
+                Experimented with rapid prototyping using Google AI Studio and modern AI tools to validate concepts, generate workflows, and design intelligent user experiences.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>Highlighted Projects</h3>
+
+          <div class="project-grid">
+            <div class="project">
+              <h4>Oura AI Habit Attribution System</h4>
+              <p>
+                Designed an AI-driven concept that connects sleep and readiness metrics with daily behavioral causes. Proposed intelligent feedback loops and personalized interventions to reduce user fatigue from passive tracking.
+              </p>
+            </div>
+
+            <div class="project">
+              <h4>Gen Z Activation Framework</h4>
+              <p>
+                Built a user research-first product framework for improving activation among Gen Z audiences through segmentation, behavioral hypotheses, and iterative experimentation.
+              </p>
+            </div>
+
+            <div class="project">
+              <h4>RAG Learning & AI Workflow Exploration</h4>
+              <p>
+                Studied retrieval-augmented generation systems including chunking, vector databases, metadata pipelines, and contextual prompt generation for LLM-powered products.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>What Makes Me Different</h3>
+
+          <div class="project-grid">
+            <div class="project">
+              <h4>Product + AI Hybrid Thinking</h4>
+              <p>
+                Combines product strategy, user psychology, and AI system understanding to identify meaningful user problems worth solving.
+              </p>
+            </div>
+
+            <div class="project">
+              <h4>Rapid Learner & Builder</h4>
+              <p>
+                Learns emerging AI concepts quickly and converts them into practical product opportunities, prototypes, and structured case studies.
+              </p>
+            </div>
+
+            <div class="project">
+              <h4>Strong Communication & Storytelling</h4>
+              <p>
+                Able to simplify complex technical systems into understandable product narratives, strategic documents, and hiring conversations.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>Resume Customization Checklist</h3>
+
+          <div class="project-grid">
+            <div class="project">
+              <h4>Before Applying</h4>
+              <p>
+                • Add measurable metrics from previous work<br>
+                • Replace placeholders with real links<br>
+                • Add education details<br>
+                • Add actual company experience<br>
+                • Tailor keywords for ATS systems
+              </p>
+            </div>
+
+            <div class="project">
+              <h4>Recommended Additions</h4>
+              <p>
+                • GitHub or portfolio website<br>
+                • Product teardown links<br>
+                • AI prototype demos<br>
+                • Product metrics framework<br>
+                • Notion case study repository
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="footer">
+        Futuristic Resume • Designed for AI Product Management & Innovation Roles • 2026
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const counters = [
+      { id: 'years', target: 12 },
+      { id: 'cases', target: 5 },
+      { id: 'ideas', target: 25 }
+    ];
+
+    counters.forEach(counter => {
+      const element = document.getElementById(counter.id);
+      let current = 0;
+
+      const interval = setInterval(() => {
+        current++;
+        element.textContent = current + '+';
+
+        if (current >= counter.target) {
+          clearInterval(interval);
+        }
+      }, 80);
+    });
+
+    document.querySelectorAll('.card').forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(124,156,255,0.12), rgba(255,255,255,0.03))`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.background = 'rgba(255,255,255,0.03)';
+      });
+    });
+  </script>
+</body>
+</html>
